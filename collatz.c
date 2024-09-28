@@ -63,6 +63,7 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 
+// CHANGE RETURN VALUE
 float cache_wrapper(char* cache_method, __uint64_t candidate) {
     // TESTING
     // if(strcmp(cache_method, "LRU")) {
