@@ -9,6 +9,18 @@ unsigned collatz_r(__uint64_t candidate);
 
 float cache_wrapper(char* cache_method, __uint64_t candidate);
 
+// LRU cache - when memory is full, the least recently used (oldest) item is replaced in the cache
+struct lru_node {
+    __uint64_t value;
+    int last_used;
+};
+
+// LFU cache - when memory is full, the least frequently used item is replaced in the cache
+struct lfu_node {
+    __uint64_t value;
+    int frequency;
+};
+
 int main(int argc, char* argv[]) {
     if(argc < 5) {
         printf("[-] Must pass the number of values to test (N), the smallest value to test (MIN), the largest value to test (MAX) and the caching method (LRU, LFU)\n");
@@ -37,6 +49,9 @@ int main(int argc, char* argv[]) {
         return 0;
     }
 
+    //Initializing both LRU and LFU caches
+    struct lru_node lru_cache[1000];
+    struct lfu_node lfu_cache[1000];
 
     srand(time(NULL));
 
