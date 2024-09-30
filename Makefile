@@ -1,5 +1,33 @@
-fib: collatz.c
-	gcc -o collatz collatz.c
+# Makefile for compiling and linking the C program
 
+# Compiler
+CC = gcc
+
+# Compiler flags
+CFLAGS = -Wall -g -I.
+
+# Source files
+SRCS = main.c collatz.c cache.c
+
+# Object files
+OBJS = $(SRCS:.c=.o)
+
+# Executable name
+TARGET = collatz
+
+# Default target
+all: $(TARGET)
+
+# Link the object files to create the executable
+$(TARGET): $(OBJS)
+	$(CC) $(OBJS) -o $(TARGET)
+
+# Compile the source files into object files
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Clean up object files and executable
 clean:
-	rm collatz
+	rm -f $(OBJS) $(TARGET)
+
+.PHONY: all clean
