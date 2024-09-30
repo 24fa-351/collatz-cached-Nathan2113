@@ -19,7 +19,6 @@ extern int least_recent_index;
 extern int least_frequent_index;
 extern int current_max;
 extern int cache_hits;
-// extern struct cache_node cache[75000];
 extern int CACHE_SIZE;
 
 bool cache_has(__uint64_t candidate);

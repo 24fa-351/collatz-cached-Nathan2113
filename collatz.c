@@ -1,4 +1,6 @@
 #include <collatz.h>
+#include <string.h>
+#include <cache.h>
 
 int cache_wrapper(char* cache_method, __uint64_t candidate) {
 
