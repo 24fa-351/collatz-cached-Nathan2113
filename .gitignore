@@ -1,0 +1,4 @@
+collatz
+*.exe
+results.csv
+*.o
